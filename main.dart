@@ -1,4 +1,5 @@
-import 'dart:io';
+import "dart:io";
+import "dart:convert";
 
 void main() {
   dynamic foo = "abc";
@@ -10,7 +11,9 @@ void main() {
   foo = 123;
   print(foo);
 
-  String? name = stdin.readLineSync();
+  String? name = stdin.readLineSync(encoding: utf8);
 
+  print("entered: $name, length: ${name?.length}");
+  print(name?[0]);
   print(name?[name.length - 1]);
 }
