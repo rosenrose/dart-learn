@@ -2,28 +2,35 @@ import "dart:io";
 import "dart:convert";
 
 void main() {
-  var isFive = true;
-  var nums = [
+  var score = "zz";
+  var superpower = 123;
+  var player = {
+    "name": "nico",
+    score.toUpperCase(): 19.99,
+    superpower + 3: false,
+    "": 1,
+    null: 2,
+    "name": "lynn"
+  };
+
+  print(player);
+
+  var nums = {
+    3,
+    3,
+    3,
     1,
     2,
-    3,
-    4,
-    if (isFive) 5,
-  ];
+    2,
+    [1, 2],
+    [1, 2],
+    null,
+    null,
+    "abc",
+    "abc",
+    true,
+    true
+  };
 
-  print("nums: $nums");
-
-  var ab = "12";
-  var abc = "123";
-
-  print("${ab}c");
-
-  var oldFriends = ["nico", "lynn"];
-  var newFriends = [
-    "foo",
-    "bar",
-    for (var of in oldFriends) "❤️ $of",
-  ];
-
-  print(newFriends);
+  print(nums);
 }
