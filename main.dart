@@ -2,18 +2,28 @@ import "dart:io";
 import "dart:convert";
 
 void main() {
-  dynamic foo = "abc";
+  var isFive = true;
+  var nums = [
+    1,
+    2,
+    3,
+    4,
+    if (isFive) 5,
+  ];
 
-  if (foo is String) {
-    print(foo);
-  }
+  print("nums: $nums");
 
-  foo = 123;
-  print(foo);
+  var ab = "12";
+  var abc = "123";
 
-  String? name = stdin.readLineSync(encoding: utf8);
+  print("${ab}c");
 
-  print("entered: $name, length: ${name?.length}");
-  print(name?[0]);
-  print(name?[name.length - 1]);
+  var oldFriends = ["nico", "lynn"];
+  var newFriends = [
+    "foo",
+    "bar",
+    for (var of in oldFriends) "❤️ $of",
+  ];
+
+  print(newFriends);
 }
