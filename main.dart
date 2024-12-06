@@ -1,37 +1,26 @@
 import "dart:io";
 import "dart:convert";
 
+typedef nums = List<int>;
+
 void main() {
-  sayHello("foo");
-  print(getHello("bar"));
-  print(add(3, 4));
-  print("");
+  print(capitalize("hello"));
+  print(capitalize(null));
 
-  sayNamedParam(name: "nico", country: "Columbia", age: 30);
-  sayNamedParam(name: "admin");
-  //sayNamedParam(country: "Korea");
-  //sayNamedParam();
-  print("");
+  String? name = stdin.readLineSync();
 
-  sayOptionalPositionalParam("kjw4569", 100);
+  if (name?.trim().length == 0) {
+    name = null;
+  }
+  name ??= "default";
+
+  print(name);
+
+  print(getReversed([4, 5, 6]));
 }
 
-void sayHello(String name) {
-  print("Hello $name!");
-}
+String capitalize(String? str) => str?.toUpperCase() ?? "NULL";
 
-String getHello(String name) {
-  return "Hi $name";
-}
-
-num add(num a, num b) => a + b;
-
-void sayNamedParam(
-    {required String name, int age = -1, String country = "default"}) {
-  print("$name(age: $age) from $country");
-}
-
-void sayOptionalPositionalParam(String name, int age,
-    [String? country = "country"]) {
-  print("$name(age: $age) from $country");
+nums getReversed(nums list) {
+  return list.reversed.toList();
 }
