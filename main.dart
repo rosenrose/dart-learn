@@ -1,26 +1,36 @@
 import "dart:io";
 import "dart:convert";
+import "dart:typed_data";
 
-typedef nums = List<int>;
+int seq = 0;
 
-void main() {
-  print(capitalize("hello"));
-  print(capitalize(null));
+class Player {
+  late final int id;
+  String name;
+  int hp;
 
-  String? name = stdin.readLineSync();
-
-  if (name?.trim().length == 0) {
-    name = null;
+  Player(this.name, this.hp) {
+    this.id = seq;
+    seq++;
   }
-  name ??= "default";
 
-  print(name);
+  void setName(name) {
+    this.name = name ?? "";
+  }
 
-  print(getReversed([4, 5, 6]));
+  String getStatus() => "($id) $name: $hp";
 }
 
-String capitalize(String? str) => str?.toUpperCase() ?? "NULL";
+void main() {
+  var p1 = Player("kjw4569", 50);
+  print(p1);
+  print(p1.name);
 
-nums getReversed(nums list) {
-  return list.reversed.toList();
+  // p1.hp = 417;
+  // print(p1.hp);
+  p1.setName("foo");
+  print(p1.getStatus());
+
+  var p2 = Player("bar", 100);
+  print(p2.getStatus());
 }
